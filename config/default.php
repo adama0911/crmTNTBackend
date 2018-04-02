@@ -7,12 +7,12 @@ $config = [
         'displayErrorDetails' => true,
         'addContentLengthHeader' => false,
 
-        'db' => [
+       /* 'db' => [
             'host' => "localhost",
             'user' => "root",
             'pass' => "",
             'dbname' => "db717711199",
-        ],
+        ],*/
 
     ]
 ];

@@ -10,6 +10,8 @@ use \App\Controller;
 use \App\Models\VenteModel;
 
 
+
+
 class VenteController extends Controller {
 
     public function accueil(Request $request, Response $response, $args){       
@@ -127,8 +129,13 @@ class VenteController extends Controller {
         return $response->withJson(array("factures" => $factures));
     }
 
-    
-    
-
-
+    public function directe(Request $request, Response $response){
+		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: Content-Type");
+		$data=$request->getParsedBody();
+		$params=json_decode($data['params']);
+		return $response->WithJson(array('code' =>'ok'));
+	}
 }
+
+

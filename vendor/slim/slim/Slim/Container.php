@@ -117,23 +117,23 @@ class Container extends PimpleContainer implements ContainerInterface
     public function get($id)
     {
         if (!$this->offsetExists($id)) {
-            throw new ContainerValueNotFoundException(sprintf('Identifier "%s" is not defined.', $id));
+           // throw new ContainerValueNotFoundException(sprintf('Identifier "%s" is not defined.', $id));
         }
         try {
             return $this->offsetGet($id);
         } catch (\InvalidArgumentException $exception) {
             if ($this->exceptionThrownByContainer($exception)) {
-                throw new SlimContainerException(
+                /*throw new SlimContainerException(
                     sprintf('Container error while retrieving "%s"', $id),
                     null,
                     $exception
-                );
+                );*/
             } else {
                 throw $exception;
             }
         }
     }
-
+     
     /**
      * Tests whether an exception needs to be recast for compliance with Container-Interop.  This will be if the
      * exception was thrown by Pimple.

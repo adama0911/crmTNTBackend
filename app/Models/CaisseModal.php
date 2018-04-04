@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class UtilModel {
+class CaisseModel {
 	private $_db = null;
 
 	public function __construct($db){
@@ -12,7 +12,7 @@ class UtilModel {
 
     public function getClientUsers(){
         $users = array();
-        $q = $this->_db->query('SELECT cu.* FROM Users cu');
+        $q = $this->_db->query('SELECT cu.* FROM clientUsers cu');
         while( $user = $q->fetch() ){
             $users[] = $user;
         }

@@ -1,10 +1,10 @@
 <?php
 
-$app->get('/', App\Controllers\HomeController::class .':accueil');
+$app->get('/', App\Controllers\VenteController::class .':accueil');
 
 
 /*
- $app->group('/exemple', function () {
+ $app->group('/vente', function () {
 
    $this->get('/gettest', App\Controllers\OrangeMoneyController::class .':gettest');
 

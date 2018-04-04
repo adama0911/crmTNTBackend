@@ -7,15 +7,15 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 use \App\Controller;
 
-use \App\Models\UtilModel;
+use \App\Models\CaisseModel;
 
 
-class HomeController extends Controller {
+class CaisseController extends Controller {
 
     public function accueil(Request $request, Response $response, $args){
           header("Access-Control-Allow-Origin: *");
           
-        $utilModel = new UtilModel($this->db);
+        $utilModel = new CaisseModel($this->db);
 
         $clientUsers     =  $utilModel->getClientUsers();
         $clients         =  $utilModel->getAllClients();
@@ -36,4 +36,3 @@ class HomeController extends Controller {
                                         "stocks" => $stocks));
     }
 }
-

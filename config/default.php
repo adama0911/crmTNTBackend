@@ -11,7 +11,7 @@ $config = [
             'host' => "localhost",
             'user' => "root",
             'pass' => "",
-            'dbname' => "db717711199",
+            'dbname' => "allStockManager",
         ],
 
     ]

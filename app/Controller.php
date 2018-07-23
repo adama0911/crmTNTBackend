@@ -9,11 +9,11 @@ use Slim\Container;
 class Controller {
 
   protected $db;
-  protected $_logger;
+  protected $fromcrmtoken;
 
   public function __construct(Container $c) {
       $this->db = $c->get('db');
-      $this->_logger = $c->get('logger');
+      $this->fromcrmtoken = "dsLDHD683_5238d11ns@sfnJDK82_3EZ7";
   }
 
   public function e404($message){

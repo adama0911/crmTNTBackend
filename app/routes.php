@@ -1,33 +1,16 @@
 <?php
 
-$app->get('/', App\Controllers\VenteController::class .':accueil');
+$app->get('/', App\Controllers\HomeController::class .':accueil');
 
-$app->group('/client',function(){
+$app->group('/authenticat', function () {
 
-    $this->post('/nouveauclient',App\Controllers\HomeController::class .':nouveauclient');
-    
-    $this->post('/bloquerclient',App\Controllers\HomeController::class .':bloquerclient');
-    
-    $this->post('/modifierclient',App\Controllers\HomeController::class .':modifierclient');
+	$this->post('/login', App\Controllers\AuthController::class .':postLogin');
 
-    
-});
-$app->group('/vente',function(){
+	$this->post('/logout', App\Controllers\AuthController::class .':postLogout');
 
-    $this->post('/directe',App\Controllers\VenteController::class .':directe');
-    
-    
 });
 
 
 
-/*
- $app->group('/vente', function () {
-
-   $this->get('/gettest', App\Controllers\OrangeMoneyController::class .':gettest');
-
-   $this->post('/posttest', App\Controllers\OrangeMoneyController::class .':posttest');
 
 
-}); 
-*/

@@ -17,7 +17,7 @@ use Slim\Exception\ContainerException as SlimContainerException;
 /**
  * Slim's default DI container is Pimple.
  *
- * Slim\App expects a container that implements Psr\Container\ContainerInterface
+ * Slim\App expects a container that implements Interop\Container\ContainerInterface
  * with these service keys configured and ready for use:
  *
  *  - settings: an array or instance of \ArrayAccess
@@ -101,7 +101,7 @@ class Container extends PimpleContainer implements ContainerInterface
     }
 
     /********************************************************************************
-     * Methods to satisfy Psr\Container\ContainerInterface
+     * Methods to satisfy Interop\Container\ContainerInterface
      *******************************************************************************/
 
     /**
@@ -117,23 +117,23 @@ class Container extends PimpleContainer implements ContainerInterface
     public function get($id)
     {
         if (!$this->offsetExists($id)) {
-           // throw new ContainerValueNotFoundException(sprintf('Identifier "%s" is not defined.', $id));
+            throw new ContainerValueNotFoundException(sprintf('Identifier "%s" is not defined.', $id));
         }
         try {
             return $this->offsetGet($id);
         } catch (\InvalidArgumentException $exception) {
             if ($this->exceptionThrownByContainer($exception)) {
-                /*throw new SlimContainerException(
+                throw new SlimContainerException(
                     sprintf('Container error while retrieving "%s"', $id),
                     null,
                     $exception
-                );*/
+                );
             } else {
                 throw $exception;
             }
         }
     }
-     
+
     /**
      * Tests whether an exception needs to be recast for compliance with Container-Interop.  This will be if the
      * exception was thrown by Pimple.

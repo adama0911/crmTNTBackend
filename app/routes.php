@@ -1,6 +1,12 @@
 <?php
 
-$app->get('/', App\Controllers\HomeController::class .':accueil');
+$app->post('/', App\Controllers\HomeController::class .':accueil');
+
+/*$app->group('/auth', function () {
+
+	$this->post('/ok', App\Controllers\HomeController::class .':accueil');
+
+});*/
 
 $app->group('/authenticat', function () {
 
